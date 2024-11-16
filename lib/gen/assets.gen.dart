@@ -62,8 +62,17 @@ class $AssetsSvgGen {
   /// File path: assets/svg/groper360.svg
   String get groper360 => 'assets/svg/groper360.svg';
 
+  /// File path: assets/svg/lang.svg
+  String get lang => 'assets/svg/lang.svg';
+
+  /// File path: assets/svg/save.svg
+  String get save => 'assets/svg/save.svg';
+
   /// File path: assets/svg/service360.svg
   String get service360 => 'assets/svg/service360.svg';
+
+  /// File path: assets/svg/share.svg
+  String get share => 'assets/svg/share.svg';
 
   /// File path: assets/svg/smartphone.svg
   String get smartphone => 'assets/svg/smartphone.svg';
@@ -88,7 +97,10 @@ class $AssetsSvgGen {
         copy,
         dlogo,
         groper360,
+        lang,
+        save,
         service360,
+        share,
         smartphone,
         tools360,
         upload

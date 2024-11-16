@@ -4,7 +4,7 @@ import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'package:srbiau_digital_plaque/view/Digital_Plaque.dart';
+import 'package:srbiau_digital_plaque/view/digital_Plaque.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_textbutton.dart';
 

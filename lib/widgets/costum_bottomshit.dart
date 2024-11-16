@@ -103,7 +103,7 @@ class CostumBottomShit extends StatelessWidget {
                       await Clipboard.setData( const ClipboardData(
                           text:AppText.addressSrb
                              ));
-                      Get.snackbar("Copied", 'متن کپی شد',backgroundColor: Colors.green , duration: Duration(seconds: 3));
+                      Get.snackbar("Copied", 'متن کپی شد',backgroundColor: Colors.green , duration: const Duration(seconds: 3));
                     },
                     child: Center(child: SvgPicture.asset(Assets.svg.copy)),
                   ),

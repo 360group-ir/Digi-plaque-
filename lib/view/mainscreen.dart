@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
@@ -14,14 +16,13 @@ import 'package:srbiau_digital_plaque/widgets/Icon_widget.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_drawer.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_bottomshit.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_textbutton.dart';
-import 'package:srbiau_digital_plaque/widgets/share_button.dart';
 
 // ignore: must_be_immutable
 class MainScreen extends StatefulWidget {
   MainScreen({
     super.key,
     this.visiblity = false,
-    
+
     // required this.imgUrl,
     // required this.qrcode,
     // required this.abouteUS,
@@ -31,7 +32,7 @@ class MainScreen extends StatefulWidget {
     // required this.contactUs
   });
 
-  final Color mainColor = const Color.fromARGB(255, 63, 105, 225) ;
+  final Color mainColor = const Color.fromARGB(255, 63, 105, 225);
   bool visiblity;
 
   @override
@@ -54,14 +55,13 @@ class _MainScreenState extends State<MainScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                
                 IconButton(
                     onPressed: () {
                       // showFullScreenDrawer(context);
                       showCenteredDialog(context);
                     },
                     icon: SvgPicture.asset(Assets.svg.group)),
-              AppDimens.padding.width,
+                AppDimens.padding.width,
               ],
             ),
           )),
@@ -77,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  (size.height*0.03).height,
+                  (size.height * 0.03).height,
                   SvgPicture.asset(
                     Assets.svg.groper360,
                     height: size.height * 0.065,
@@ -94,7 +94,10 @@ class _MainScreenState extends State<MainScreen> {
                     height: size.height * 0.13,
                   ),
                   (size.height * 0.032).height
-                ].animate(effects: [ ScaleEffect(duration: Duration(milliseconds: 500)),FadeEffect(duration: Durations.long2)]),
+                ].animate(effects: [
+                  const ScaleEffect(duration: Duration(milliseconds: 500)),
+                  const FadeEffect(duration: Durations.long2)
+                ]),
               ),
             ),
             //List tiles
@@ -107,10 +110,12 @@ class _MainScreenState extends State<MainScreen> {
               child: ExpanGroup(
                 mainColor: widget.mainColor,
                 title: "درباره مرکز رشد ",
-                children:  [
+                children: [
                   Text(
                     AppText.lorem,
-                    style: AppTextStyles.descriptionStyle.copyWith(height: 2 ,),
+                    style: AppTextStyles.descriptionStyle.copyWith(
+                      height: 2,
+                    ),
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.justify,
                     locale: const Locale("fa"),
@@ -130,7 +135,6 @@ class _MainScreenState extends State<MainScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        
                         IconWidget(
                           assetsName: Assets.svg.vector,
                           text: AppText.phone,
@@ -139,7 +143,6 @@ class _MainScreenState extends State<MainScreen> {
                           assetsName: Assets.svg.icon,
                           text: AppText.website,
                         ),
-                        
                         GestureDetector(
                           onTap: () {
                             setState(() {
@@ -148,7 +151,7 @@ class _MainScreenState extends State<MainScreen> {
                                       const Duration(milliseconds: 400),
                                   exitBottomSheetDuration:
                                       const Duration(milliseconds: 300),
-                                   CostumBottomShit());
+                                  CostumBottomShit());
                             });
                           },
                           child: IconWidget(
@@ -169,8 +172,8 @@ class _MainScreenState extends State<MainScreen> {
             //TODO: job offers
 
             const Padding(
-              padding: EdgeInsets.fromLTRB(AppDimens.padding, (AppDimens.xlarge),
-                  AppDimens.padding, AppDimens.small),
+              padding: EdgeInsets.fromLTRB(AppDimens.padding,
+                  (AppDimens.xlarge), AppDimens.padding, AppDimens.small),
               child: Text(
                 AppText.roshdCompanies,
                 style: AppTextStyles.titleStyleB,
@@ -184,10 +187,10 @@ class _MainScreenState extends State<MainScreen> {
               child: ExpanGroup(
                   title: "طبقه همکف",
                   mainColor: widget.mainColor,
-                  children:  [
+                  children: [
                     CostumTextButton(
                       textButtonTitle: 'بلوک E',
-                      onPressed: (){
+                      onPressed: () {
                         Get.to(CompanyList(mainColor: widget.mainColor));
                       },
                     )
@@ -250,14 +253,43 @@ class _MainScreenState extends State<MainScreen> {
             ),
 
             //Share button
+            //TODO
             Animate(
               effects: const [
                 ScaleEffect(duration: Durations.extralong1),
               ],
-              child: const Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: AppDimens.padding , vertical: AppDimens.xlarge),
-                child: ShareButton(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimens.padding, vertical: AppDimens.xlarge),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () async {
+                          await Share.share(AppText.shareDesc);
+                          if (kDebugMode) {
+                            print('Thank you for sharing my website!');
+                          }
+                        },
+                        icon: SvgPicture.asset(
+                          Assets.svg.share,
+                          colorFilter: const ColorFilter.mode(
+                              AppColors.neutralDarker, BlendMode.srcIn),
+                        )),
+                    AppDimens.medium.width,
+                    IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset(Assets.svg.lang,
+                            colorFilter: const ColorFilter.mode(
+                                AppColors.neutralDarker, BlendMode.srcIn))),
+                    AppDimens.medium.width,
+                    IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset(Assets.svg.save,
+                            colorFilter: const ColorFilter.mode(
+                                AppColors.neutralDarker, BlendMode.srcIn))),
+                  ],
+                ),
               ),
             ),
 
