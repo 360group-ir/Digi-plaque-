@@ -10,7 +10,7 @@ import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'package:srbiau_digital_plaque/view/company_list.dart';
+import 'package:srbiau_digital_plaque/main.dart';
 import 'package:srbiau_digital_plaque/widgets/Expan_Gruope.dart';
 import 'package:srbiau_digital_plaque/widgets/Icon_widget.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_drawer.dart';
@@ -72,7 +72,6 @@ class _MainScreenState extends State<MainScreen> {
             //Qr code groupe
             Container(
               color: widget.mainColor,
-              // height: size.height * 0.4,
               width: size.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -191,7 +190,7 @@ class _MainScreenState extends State<MainScreen> {
                     CostumTextButton(
                       textButtonTitle: 'بلوک E',
                       onPressed: () {
-                        Get.to(CompanyList(mainColor: widget.mainColor));
+                        Get.toNamed(RouteName.routeCompaneyList);
                       },
                     )
                   ]),
@@ -203,12 +202,18 @@ class _MainScreenState extends State<MainScreen> {
               child: ExpanGroup(
                   title: "طبقه اول",
                   mainColor: widget.mainColor,
-                  children: const [
+                  children:  [
                     CostumTextButton(
                       textButtonTitle: 'بلوک B',
+                      onPressed: (){
+                        Get.toNamed(RouteName.routeCompaneyList);
+                      },
                     ),
                     CostumTextButton(
                       textButtonTitle: 'بلوک C',
+                      onPressed: (){
+                        Get.toNamed(RouteName.routeCompaneyList);
+                      },
                     ),
                   ]),
             ),

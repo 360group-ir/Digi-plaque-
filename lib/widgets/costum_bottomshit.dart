@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
@@ -7,16 +8,18 @@ import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
+import 'package:srbiau_digital_plaque/controller/eplak_controller.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class CostumBottomShit extends StatelessWidget {
   CostumBottomShit({
     super.key,
   });
 
   final Uri urlLoc = Uri.parse('https://maps.app.goo.gl/y2EXf5eFr7583cdT6');
-
+  BusinessController businessController = Get.put(BusinessController());
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -52,15 +55,17 @@ class CostumBottomShit extends StatelessWidget {
               ],
             ),
             (size.height * 0.035).height,
+            Obx(() => businessController.isLoading.value? Center(child: SpinKitCircle()):
+            
             Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                AppText.addressSrb,
-                maxLines: 3,
-                textDirection: TextDirection.rtl,
-                style: AppTextStyles.tileChildrenStyle.copyWith(height: 2),
-              ),
-            ),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    businessController.businessData.value!.address,
+                    maxLines: 3,
+                    textDirection: TextDirection.rtl,
+                    style: AppTextStyles.tileChildrenStyle.copyWith(height: 2),
+                  ),
+                )),
             (size.height * 0.035).height,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +84,8 @@ class CostumBottomShit extends StatelessWidget {
                       } else {
                         Get.snackbar("Could not launch url", '',
                             backgroundColor: AppColors.primaryDefaultG,
-                            animationDuration: const Duration(milliseconds: 500));
+                            animationDuration:
+                                const Duration(milliseconds: 500));
                       }
                     },
                     child: const Center(
@@ -100,10 +106,11 @@ class CostumBottomShit extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4)),
                   child: TextButton(
                     onPressed: () async {
-                      await Clipboard.setData( const ClipboardData(
-                          text:AppText.addressSrb
-                             ));
-                      Get.snackbar("Copied", 'متن کپی شد',backgroundColor: Colors.green , duration: const Duration(seconds: 3));
+                      await Clipboard.setData(
+                          const ClipboardData(text: AppText.addressSrb));
+                      Get.snackbar("Copied", 'متن کپی شد',
+                          backgroundColor: Colors.green,
+                          duration: const Duration(seconds: 3));
                     },
                     child: Center(child: SvgPicture.asset(Assets.svg.copy)),
                   ),

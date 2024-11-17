@@ -6,7 +6,7 @@ import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'package:srbiau_digital_plaque/view/contact_us.dart';
+import 'package:srbiau_digital_plaque/main.dart';
 import 'package:srbiau_digital_plaque/view/mainscreen.dart';
 
 
@@ -22,8 +22,8 @@ class CustomDrawer extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: Colors.transparent,
         child: Container(
-          width: size.width , // عرض دیالوگ
-          height: size.height, // ارتفاع دیالوگ
+          width: size.width ,
+          height: size.height, 
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 63, 105, 225),
             borderRadius: BorderRadius.circular(20),
@@ -82,7 +82,7 @@ class CustomDrawer extends StatelessWidget {
                   style: AppTextStyles.tileTxtStyleW,
                 ),
                 onTap: () {
-                  Get.to(const ContactUs());
+                  Get.toNamed(RouteName.contactUs);
                 },
               ),
               const Expanded(child: SizedBox()),

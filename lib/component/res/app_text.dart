@@ -7,7 +7,7 @@ class AppText {
  با تولید سادگی نامفهوم ''';
 
  static const String knowMore = "بیشتر بدانید"; 
- static const String shareDesc = "Share Digital Plaque"; 
+ static const String shareDesc = "Share E-pelak http://e-pelak.com/"; 
  static const String contactUs = "ارتباط با ما"; 
  static const String roshdCompanies = "شرکت‌های حاضر در بام نوآوری"; 
  static const String locationOnMap = "نمایش موقعیت روی نقشه"; 

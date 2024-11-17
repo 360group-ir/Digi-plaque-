@@ -4,7 +4,7 @@ import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'package:srbiau_digital_plaque/view/digital_Plaque.dart';
+import 'package:srbiau_digital_plaque/main.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_textbutton.dart';
 
@@ -21,7 +21,6 @@ class CompanyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: size.height * 0.21,
       width: double.infinity,
       margin: const EdgeInsets.fromLTRB(
           AppDimens.padding, AppDimens.small, AppDimens.padding, AppDimens.small),
@@ -64,7 +63,7 @@ class CompanyItem extends StatelessWidget {
           CostumTextButton(
             textButtonTitle: "اطلاعات بیشتر",
             onPressed: () {
-              Get.to(DigitalPlaque(mainColor: widget.mainColor));
+              Get.toNamed(RouteName.routeEpelak);
             },
           )
         ],
