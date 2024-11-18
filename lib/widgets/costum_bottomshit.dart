@@ -71,7 +71,7 @@ class CostumBottomShit extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: size.width * 0.77,
+                  width: size.width * 0.75,
                   height: size.width * 0.11,
                   decoration: BoxDecoration(
                       color: AppColors.neutralLight,

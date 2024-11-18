@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:srbiau_digital_plaque/component/api_constant.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
 import 'package:srbiau_digital_plaque/view/contact_us.dart';
 import 'package:srbiau_digital_plaque/view/eplak.dart';
@@ -62,6 +63,6 @@ class RouteName {
 
   static String routeMainScreen = "/SRB-IAU";
   static String routeCompaneyList = "/BlockList";
-  static String routeEpelak = "/e-pelak";
+  static String routeEpelak = "/e-pelak/${ApiConstant.code}";
   static String contactUs = "/ContactUs";
 }

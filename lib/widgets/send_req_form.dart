@@ -16,7 +16,6 @@ class SendReqForm extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      // height: size.height * 0.60,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: AppDimens.small),
       margin: const EdgeInsets.symmetric(horizontal: AppDimens.padding),
@@ -25,7 +24,7 @@ class SendReqForm extends StatelessWidget {
       child: Column(
         children: [
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppDimens.padding , vertical: AppDimens.medium),
+            padding: EdgeInsets.fromLTRB(AppDimens.padding , AppDimens.medium,AppDimens.padding,0),
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(
@@ -49,7 +48,7 @@ class SendReqForm extends StatelessWidget {
 
           const ReqFormTextfeild(
             hintText: 'متن درخواست  ',
-            maxLin: 12,
+            maxLin: 10,
           ),
           (size.height * 0.025).height,
 

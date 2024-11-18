@@ -4,7 +4,7 @@ import 'package:srbiau_digital_plaque/component/api_constant.dart';
 import 'package:srbiau_digital_plaque/models/epelak_model.dart';
 
 class BusinessController extends GetxController {
-  // Rx variables for reactive state management
+
   var isLoading = true.obs;
   var businessData = Rxn<BusinessData>();
 

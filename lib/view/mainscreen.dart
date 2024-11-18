@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
@@ -88,10 +89,22 @@ class _MainScreenState extends State<MainScreen> {
                         AppTextStyles.titleStyleB.copyWith(color: Colors.white),
                   ),
                   (size.height * 0.032).height,
-                  Image.asset(
-                    Assets.png.qrcode.path,
-                    height: size.height * 0.13,
+                  QrImageView(
+                    data: Uri.base.toString(),
+                    version: QrVersions.auto,
+                    size: size.height * 0.15,
+                    dataModuleStyle: const QrDataModuleStyle(
+                        dataModuleShape: QrDataModuleShape.square,
+                        color: Colors.white),
+                    eyeStyle: const QrEyeStyle(
+                      eyeShape: QrEyeShape.square,
+                      color: Colors.white,
+                    ),
                   ),
+                  // Image.asset(
+                  //   Assets.png.qrcode.path,
+                  //   height: size.height * 0.13,
+                  // ),
                   (size.height * 0.032).height
                 ].animate(effects: [
                   const ScaleEffect(duration: Duration(milliseconds: 500)),
@@ -184,65 +197,86 @@ class _MainScreenState extends State<MainScreen> {
                 MoveEffect(duration: Durations.extralong1),
               ],
               child: ExpanGroup(
-                  title: "طبقه همکف",
+                  title: "ساختمان دکتر حبیبی",
                   mainColor: widget.mainColor,
                   children: [
+                    const Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.small,
+                              vertical: AppDimens.small),
+                          child: Text(
+                            "طبقه همکف",
+                            style: AppTextStyles.tileTxtStyle,
+                          ),
+                        )),
                     CostumTextButton(
                       textButtonTitle: 'بلوک E',
                       onPressed: () {
                         Get.toNamed(RouteName.routeCompaneyList);
                       },
-                    )
-                  ]),
-            ),
-            Animate(
-              effects: const [
-                MoveEffect(duration: Durations.extralong1),
-              ],
-              child: ExpanGroup(
-                  title: "طبقه اول",
-                  mainColor: widget.mainColor,
-                  children:  [
+                    ),
+                    const Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.small,
+                              vertical: AppDimens.small),
+                          child: Text(
+                            "طبقه اول",
+                            style: AppTextStyles.tileTxtStyle,
+                          ),
+                        )),
                     CostumTextButton(
                       textButtonTitle: 'بلوک B',
-                      onPressed: (){
+                      onPressed: () {
                         Get.toNamed(RouteName.routeCompaneyList);
                       },
                     ),
                     CostumTextButton(
                       textButtonTitle: 'بلوک C',
-                      onPressed: (){
+                      onPressed: () {
                         Get.toNamed(RouteName.routeCompaneyList);
                       },
                     ),
-                  ]),
-            ),
-            Animate(
-              effects: const [
-                MoveEffect(duration: Durations.extralong1),
-              ],
-              child: ExpanGroup(
-                  title: "طبقه چهارم",
-                  mainColor: widget.mainColor,
-                  children: const [
+                    const Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.small,
+                              vertical: AppDimens.small),
+                          child: Text(
+                            "طبقه چهارم",
+                            style: AppTextStyles.tileTxtStyle,
+                          ),
+                        )),
                     CostumTextButton(
                       textButtonTitle: 'بلوک C',
+                      onPressed: () {
+                        Get.toNamed(RouteName.routeCompaneyList);
+                      },
                     ),
-                  ]),
-            ),
-            Animate(
-              effects: const [
-                MoveEffect(duration: Durations.extralong1),
-              ],
-              child: ExpanGroup(
-                  title: "طبقه پنجم",
-                  mainColor: widget.mainColor,
-                  children: const [
+                    const Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.small,
+                              vertical: AppDimens.small),
+                          child: Text(
+                            "طبقه پنجم",
+                            style: AppTextStyles.tileTxtStyle,
+                          ),
+                        )),
                     CostumTextButton(
                       textButtonTitle: 'کل طبقه',
+                      onPressed: () {
+                        Get.toNamed(RouteName.routeCompaneyList);
+                      },
                     ),
                   ]),
             ),
+
             Animate(
               effects: const [
                 MoveEffect(duration: Durations.extralong1),
@@ -252,7 +286,7 @@ class _MainScreenState extends State<MainScreen> {
                   mainColor: widget.mainColor,
                   children: const [
                     CostumTextButton(
-                      textButtonTitle: 'ساختمان شیخ‌بهایی',
+                      textButtonTitle: 'کل طبقه',
                     ),
                   ]),
             ),

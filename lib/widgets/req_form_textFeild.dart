@@ -13,11 +13,11 @@ class ReqFormTextfeild extends StatelessWidget {
   final int maxLin ;
   @override
   Widget build(BuildContext context) {
+    // Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.fromLTRB(
            AppDimens.small ,AppDimens.padding,AppDimens.small,0),
       child: Container(
-        // height: 40,
         padding:const EdgeInsets.symmetric(horizontal:  AppDimens.small) ,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(4)),

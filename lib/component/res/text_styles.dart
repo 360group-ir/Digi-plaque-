@@ -7,7 +7,9 @@ class AppTextStyles {
   static const TextStyle landingPageTools =
       TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600);
   static const TextStyle tileTxtStyle =
-      TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w700);
+      TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600);
+  static const TextStyle tileTxtStyleBold =
+      TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
   static const TextStyle tileTxtStyleW =
       TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700);
   static const TextStyle tileChildrenStyle =

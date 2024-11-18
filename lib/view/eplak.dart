@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
@@ -86,7 +87,6 @@ class Eplak extends StatelessWidget {
               : Column(
                   children: [
                     //Qr code groupe
-
                     Container(
                       color: mainColor,
                       width: size.width,
@@ -105,9 +105,17 @@ class Eplak extends StatelessWidget {
                                 .copyWith(color: Colors.white),
                           ),
                           (size.height * 0.06).height,
-                          Image.asset(
-                            Assets.png.qrcode.path,
-                            height: size.height * 0.13,
+                          QrImageView(
+                            data: Uri.base.toString(),
+                            version: QrVersions.auto,
+                            size: size.height * 0.15,
+                            dataModuleStyle: const QrDataModuleStyle(
+                                dataModuleShape: QrDataModuleShape.square,
+                                color: Colors.white),
+                            eyeStyle: const QrEyeStyle(
+                              eyeShape: QrEyeShape.square,
+                              color: Colors.white,
+                            ),
                           ),
                           (size.height * 0.032).height
                         ],
@@ -222,7 +230,6 @@ class Eplak extends StatelessWidget {
                             IconButton(
                                 onPressed: () async {
                                   await Share.share(AppText.shareDesc);
-                                  
                                 },
                                 icon: SvgPicture.asset(
                                   Assets.svg.share,

@@ -27,7 +27,7 @@ class ExpanGroup extends StatelessWidget {
             title,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
-            style: AppTextStyles.tileTxtStyle,
+            style: AppTextStyles.tileTxtStyleBold,
           ),
           childrenPadding: const EdgeInsets.fromLTRB(AppDimens.medium,
               AppDimens.small, AppDimens.medium, AppDimens.small),

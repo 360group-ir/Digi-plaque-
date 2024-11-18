@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
+import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
@@ -30,7 +31,8 @@ class ContactUs extends StatelessWidget {
                   height: size.height * 0.086,
                   color: maincolor,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: AppDimens.padding),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: AppDimens.padding),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -58,35 +60,38 @@ class ContactUs extends StatelessWidget {
                     ),
                   ),
                 )),
-            body: Column(
-              children: [
-                const Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppDimens.xlarge,
-                          vertical: AppDimens.padding),
-                      child: Text(
-                        AppText.contactUs,
-                        style: AppTextStyles.titleStyleB,
+            body: SingleChildScrollView(
+              child: SizedBox(
+                child: Column(
+                  children: [
+                    const Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.xlarge,
+                              vertical: AppDimens.padding),
+                          child: Text(
+                            AppText.contactUs,
+                            style: AppTextStyles.titleStyleB,
+                          ),
+                        )),
+                    // send req 2
+                    SendReqForm(
+                      color: maincolor,
+                    ),
+                    (size.height*0.11).height,
+                    Padding(
+                      padding: const EdgeInsets.all(AppDimens.padding),
+                      child: SvgPicture.asset(
+                        Assets.svg.groper360,
+                        height: size.height * 0.035,
+                        colorFilter: const ColorFilter.mode(
+                            Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
                       ),
-                    )),
-                // send req 2
-            
-                SendReqForm(
-                  color: maincolor,
+                    ),
+                  ],
                 ),
-                  const Expanded(child: SizedBox()),
-                Padding(
-                  padding: const EdgeInsets.all(AppDimens.padding),
-                  child: SvgPicture.asset(
-                    Assets.svg.groper360,
-                    height: size.height * 0.035,
-                    colorFilter: const ColorFilter.mode(
-                        Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
-                  ),
-                ),
-              ],
+              ),
             )));
   }
 }
