@@ -16,7 +16,7 @@ class ContactUs extends StatelessWidget {
     super.key,
   });
 
-  final Color maincolor = const Color.fromARGB(255, 63, 105, 225);
+  final Color maincolor = const  Color.fromARGB(255, 28, 198, 201);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

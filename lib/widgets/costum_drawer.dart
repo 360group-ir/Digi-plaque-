@@ -25,7 +25,7 @@ class CustomDrawer extends StatelessWidget {
           width: size.width ,
           height: size.height, 
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 63, 105, 225),
+            color: const  Color.fromARGB(255, 28, 198, 201),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(

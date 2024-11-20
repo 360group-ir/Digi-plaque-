@@ -33,7 +33,7 @@ class MainScreen extends StatefulWidget {
     // required this.contactUs
   });
 
-  final Color mainColor = const Color.fromARGB(255, 63, 105, 225);
+  final Color mainColor= const Color.fromARGB(255, 28, 198, 201);
   bool visiblity;
 
   @override
@@ -101,10 +101,7 @@ class _MainScreenState extends State<MainScreen> {
                       color: Colors.white,
                     ),
                   ),
-                  // Image.asset(
-                  //   Assets.png.qrcode.path,
-                  //   height: size.height * 0.13,
-                  // ),
+
                   (size.height * 0.032).height
                 ].animate(effects: [
                   const ScaleEffect(duration: Duration(milliseconds: 500)),
