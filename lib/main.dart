@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: RouteName.routeEpelak,
-          page: () => Eplak(mainColor: Color.fromARGB(255, 28, 198, 201), visiblity: true),
+          page: () => Eplak(mainColor: const Color.fromARGB(255, 28, 198, 201), visiblity: true),
         ),
         GetPage(
           name: RouteName.contactUs,
