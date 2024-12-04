@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:srbiau_digital_plaque/component/api_constant.dart';
+import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
+import 'package:srbiau_digital_plaque/component/responsive.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
 import 'package:srbiau_digital_plaque/view/contact_us.dart';
 import 'package:srbiau_digital_plaque/view/eplak.dart';
@@ -9,18 +12,33 @@ import 'package:srbiau_digital_plaque/view/mainscreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor:AppColors.primaryPelak,
+      systemNavigationBarColor:AppColors.primaryPelak));
   runApp(
-    Center(
-      child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 430),
-          child: const MyApp()),
+    LayoutBuilder(
+      builder: (context, constraints) {
+        return Center(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+                maxWidth: Responsive.isDesktop(context)
+                    // ? 1080
+                    ?constraints.maxWidth
+                    : Responsive.isTablet(context)
+                        ? constraints.maxWidth
+                        : Responsive.isMobile(context)
+                            ? constraints.maxWidth
+                            : 435),
+            child: const MyApp(),
+          ),
+        );
+      },
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -30,7 +48,10 @@ class MyApp extends StatelessWidget {
         dividerColor: Colors.transparent,
         textTheme: GoogleFonts.vazirmatnTextTheme(),
         useMaterial3: true,
+        colorSchemeSeed: AppColors.primaryPelak
       ),
+      defaultTransition: Transition.cupertinoDialog,
+      transitionDuration: Durations.extralong4,
       getPages: [
         GetPage(
           name: RouteName.routeMainScreen,
@@ -38,8 +59,8 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: RouteName.routeCompaneyList,
-          page: () => const CompanyList(
-            mainColor: Color.fromARGB(255, 28, 198, 201),
+          page: () =>  CompanyList(
+            mainColor: AppColors.primaryPelak,
           ),
         ),
         GetPage(
@@ -52,6 +73,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       debugShowCheckedModeBanner: false,
+      
       home: MainScreen(),
     );
   }

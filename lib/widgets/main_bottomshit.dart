@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
@@ -8,18 +7,17 @@ import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
-import 'package:srbiau_digital_plaque/controller/eplak_controller.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
-class CostumBottomShit extends StatelessWidget {
-  CostumBottomShit({
+class MainBottomShit extends StatelessWidget {
+  MainBottomShit({
     super.key,
   });
 
-  final Uri urlLoc = Uri.parse('https://maps.app.goo.gl/MBGHM2WZMhTNv8Fd7');
-  BusinessController businessController = Get.put(BusinessController());
+  final Uri urlLoc = Uri.parse('https://maps.app.goo.gl/AWRzbnFLYJu42dq1A?g_st=com.google.maps.preview.copy');
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -55,28 +53,24 @@ class CostumBottomShit extends StatelessWidget {
               ],
             ),
             (size.height * 0.035).height,
-            Obx(() => businessController.isLoading.value
-                ? Center(child: SpinKitCircle())
-                : Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      ''' دانشگاه آزاد اسلامی واحد علوم وتحقیقات
-کتابخانه دکتر حبیبی
-طبقه ${businessController.businessData.value!.floor} - بلوک ${businessController.businessData.value!.block} - پلاک ${businessController.businessData.value!.unit}''',
-                      // '''${businessController.businessData.value!.address}''',
-                      maxLines: 3,
-                      textDirection: TextDirection.rtl,
-                      style:
-                          AppTextStyles.tileChildrenStyle.copyWith(height: 2),
-                    ),
-                  )),
-            (size.height * 0.035).height,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                AppText.addressSrb,
+                // '''${businessController.businessData.value!.address}''',
+                maxLines: 3,
+                textDirection: TextDirection.rtl,
+                style: AppTextStyles.tileChildrenStyle.copyWith(height: 2),
+              ),
+            ),
+            // (size.height * 0.03).height,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   width: size.width * 0.75,
-                  height: size.width * 0.11,
+                  height:48, 
+                  // size.width * 0.11,
                   decoration: BoxDecoration(
                       color: AppColors.neutralLight,
                       border: Border.all(color: AppColors.neutralDark),
@@ -111,9 +105,7 @@ class CostumBottomShit extends StatelessWidget {
                   child: TextButton(
                     onPressed: () async {
                       await Clipboard.setData(
-                           ClipboardData(text: ''' دانشگاه آزاد اسلامی واحد علوم وتحقیقات
-کتابخانه دکتر حبیبی
-طبقه ${businessController.businessData.value!.floor} - بلوک ${businessController.businessData.value!.block} - پلاک ${businessController.businessData.value!.unit}''',));
+                          const ClipboardData(text: AppText.addressSrb));
                       Get.snackbar("Copied", 'متن کپی شد',
                           backgroundColor: Colors.green,
                           duration: const Duration(seconds: 3));

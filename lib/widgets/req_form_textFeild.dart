@@ -5,12 +5,14 @@ import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 
 
 class ReqFormTextfeild extends StatelessWidget {
-  const ReqFormTextfeild({
+   const ReqFormTextfeild({
     super.key,
-    required this.hintText, required this.maxLin,
+    required this.hintText, required this.maxLin, required this.controller, required this.inputType,
   });
   final String hintText;
   final int maxLin ;
+  final TextEditingController controller ;
+  final TextInputType inputType ;
   @override
   Widget build(BuildContext context) {
     // Size size = MediaQuery.of(context).size;
@@ -23,9 +25,9 @@ class ReqFormTextfeild extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(4)),
           color: Colors.white,
           boxShadow: [
-          BoxShadow(
+            BoxShadow(
             color: AppColors.shadowColor2,
-            offset: Offset(0, 2),
+            offset: Offset(0, 1),
             blurRadius: 4,
           ),
           BoxShadow(
@@ -33,10 +35,13 @@ class ReqFormTextfeild extends StatelessWidget {
             offset: Offset(0, 1),
             blurRadius: 4,
           ),
+          
         ]),
         child: TextField(
+          controller: controller,
           textAlign: TextAlign.right,
           maxLines: maxLin,
+          keyboardType:inputType ,
           decoration: InputDecoration(
               hintText: hintText,
               hintTextDirection: TextDirection.rtl,

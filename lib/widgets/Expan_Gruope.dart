@@ -8,11 +8,12 @@ class ExpanGroup extends StatelessWidget {
     super.key,
     required this.title,
     required this.children,
-    required this.mainColor,
+    required this.mainColor, required this.expantileOpen,
   });
   final String title;
   final List<Widget> children;
   final Color mainColor;
+  final bool expantileOpen;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +24,19 @@ class ExpanGroup extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(4)),
         child: ExpansionTile(
+          clipBehavior: Clip.hardEdge,
           title: Text(
             title,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
-            style: AppTextStyles.tileTxtStyleBold,
+            style: AppTextStyles.tileTxtStyle,
           ),
+          tilePadding: const EdgeInsets.symmetric(horizontal: AppDimens.small),
+          initiallyExpanded: expantileOpen,
           childrenPadding: const EdgeInsets.fromLTRB(AppDimens.medium,
               AppDimens.small, AppDimens.medium, AppDimens.small),
           expansionAnimationStyle: AnimationStyle(
-            duration: const Duration(milliseconds: 400),
+            duration: const Duration(milliseconds: 600),
           ),
           iconColor: mainColor,
           collapsedIconColor: Colors.black,

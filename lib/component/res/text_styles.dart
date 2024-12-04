@@ -11,7 +11,7 @@ class AppTextStyles {
   static const TextStyle tileTxtStyleBold =
       TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
   static const TextStyle tileTxtStyleW =
-      TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700);
+      TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700);
   static const TextStyle tileChildrenStyle =
       TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500);
 
@@ -31,6 +31,10 @@ class AppTextStyles {
       fontWeight: FontWeight.w600);
   static const TextStyle sendReqTextFeildHint = TextStyle(
       color: AppColors.neutralDefault,
+      fontSize: 16,
+      fontWeight: FontWeight.w600);
+  static const TextStyle snackbar = TextStyle(
+      color: AppColors.neutralLight,
       fontSize: 16,
       fontWeight: FontWeight.w600);
 

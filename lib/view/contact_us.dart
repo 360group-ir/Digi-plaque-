@@ -7,6 +7,7 @@ import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
+import 'package:srbiau_digital_plaque/component/responsive.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_drawer.dart';
 import 'package:srbiau_digital_plaque/widgets/send_req_form.dart';
@@ -44,15 +45,8 @@ class ContactUs extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: AppColors.neutralLight,
                             )),
-                        SvgPicture.asset(
-                          Assets.svg.dlogo,
-                          height: size.height * 0.08,
-                          colorFilter: const ColorFilter.mode(
-                              Colors.white, BlendMode.srcIn),
-                        ),
                         IconButton(
                             onPressed: () {
-                              // showFullScreenDrawer(context);
                               showCenteredDialog(context);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
@@ -61,35 +55,41 @@ class ContactUs extends StatelessWidget {
                   ),
                 )),
             body: SingleChildScrollView(
-              child: SizedBox(
-                child: Column(
-                  children: [
-                    const Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: AppDimens.xlarge,
-                              vertical: AppDimens.padding),
-                          child: Text(
-                            AppText.contactUs,
-                            style: AppTextStyles.titleStyleB,
+              child: Center(
+                child: SizedBox(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                    maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
+                    child: Column(
+                      children: [
+                        const Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: AppDimens.xlarge,
+                                  vertical: AppDimens.padding),
+                              child: Text(
+                                AppText.contactUs,
+                                style: AppTextStyles.titleStyleB,
+                              ),
+                            )),
+                        // send req 2
+                        SendReqForm(
+                          color: maincolor,
+                        ),
+                        (size.height*0.11).height,
+                        Padding(
+                          padding: const EdgeInsets.all(AppDimens.padding),
+                          child: SvgPicture.asset(
+                            Assets.svg.groper360,
+                            height: size.height * 0.035,
+                            colorFilter: const ColorFilter.mode(
+                                Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
                           ),
-                        )),
-                    // send req 2
-                    SendReqForm(
-                      color: maincolor,
+                        ),
+                      ],
                     ),
-                    (size.height*0.11).height,
-                    Padding(
-                      padding: const EdgeInsets.all(AppDimens.padding),
-                      child: SvgPicture.asset(
-                        Assets.svg.groper360,
-                        height: size.height * 0.035,
-                        colorFilter: const ColorFilter.mode(
-                            Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             )));

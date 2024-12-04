@@ -3,7 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
-import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:srbiau_digital_plaque/main.dart';
@@ -29,6 +28,7 @@ class CustomDrawer extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
@@ -45,14 +45,13 @@ class CustomDrawer extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SvgPicture.asset(
-                    Assets.svg.dlogo,
-                    height: size.height * 0.265,
-                    colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  Image.asset(
+                    Assets.png.baam.path,
+                    height: size.height * 0.26,
                   ),
                 ],
               ),
-              (size.height * 0.075).height,
+              // (size.height * 0.075).height,
               ListTile(
                 title: const Text(
                   'صفحه اصلی',
@@ -63,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
                   Get.offAll(MainScreen());
                 },
               ),
-              (size.height * 0.045).height,
+              // (size.height * 0.045).height,
               ListTile(
                 title: const Text(
                   'شرکت‌های مرکز رشد',
@@ -74,7 +73,7 @@ class CustomDrawer extends StatelessWidget {
                   Get.offAll(MainScreen());
                 },
               ),
-              (size.height * 0.045).height,
+              // (size.height * 0.045).height,
               ListTile(
                 title: const Text(
                   'ارتباط با ما',
@@ -83,15 +82,17 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 onTap: () {
                   Get.toNamed(RouteName.contactUs);
+                  // Get.to(ContactUsPage());
                 },
               ),
-              const Expanded(child: SizedBox()),
-              (size.height * 0.045).height,
+              // const Expanded(child: SizedBox()),
+              // (size.height * 0.045).height,
               Padding(
                 padding: const EdgeInsets.only(bottom: AppDimens.xlarge ),
                 child: SvgPicture.asset(
                   Assets.svg.groper360,
-                  height: size.height * 0.034,
+                  height: size.height * 0.04,
+                  colorFilter: const ColorFilter.mode(Colors.white60, BlendMode.srcIn),
                 ),
               ),
             ],
@@ -111,113 +112,3 @@ void showCenteredDialog(BuildContext context) {
     },
   );
 }
-
-
-
-
-
-
-
-// class CustomDrawer extends StatelessWidget {
-//   const CustomDrawer({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     Size size = MediaQuery.of(context).size;
-//     return SafeArea(
-//       child: Scaffold(
-//         appBar: PreferredSize(
-//           preferredSize: Size(size.width, size.height * 0.12),
-//           child: Container(
-//             height: size.height * 0.12,
-//             color: const Color.fromARGB(255, 63, 105, 225), 
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.start,
-//               children: [
-//                 Align(
-//                 alignment: Alignment.centerLeft,
-//                 child: Padding(
-//                   padding: const EdgeInsets.all(8.0),
-//                   child: IconButton(
-//                       onPressed: () => Get.back(),
-//                       icon: const Icon(
-//                         CupertinoIcons.xmark,
-//                         color: Colors.white,
-//                         weight: 18,
-//                       )),
-//                 ),
-//               ),
-//               ],
-//             ),
-//           )),
-//         body:  Container(
-//           color:
-//               const Color.fromARGB(255, 63, 105, 225), 
-//           height: size.height, 
-//           width: size.width, 
-//           child: Column(
-//             children: [
-//               // (size.height * 0.03).height,
-//               SvgPicture.asset(
-//                 Assets.svg.dlogo,
-//                 height: size.height * 0.265,
-//                 colorFilter:
-//                     const ColorFilter.mode(Colors.white, BlendMode.srcIn),
-//               ),
-//               (size.height*0.075).height,
-//               ListTile(
-//                 title: const Text(
-//                   'صفحه اصلی',
-//                   textAlign: TextAlign.center,
-//                   style: AppTextStyles.titleStyleW
-//                 ),
-//                 onTap: () {
-//                   Get.offAll(MainScreen());
-//                 },
-//               ),
-//               (size.height*0.045).height,
-//               ListTile(
-//                 title: const Text(
-//                   'شرکت‌های مرکز رشد',
-//                   textAlign: TextAlign.center,
-//                   style: AppTextStyles.titleStyleW
-//                 ),
-//                 onTap: () {
-//                   Get.offAll(MainScreen());
-//                 },
-//               ),
-//               (size.height*0.045).height,
-//               ListTile(
-//                 title: const Text(
-//                   'ارتباط با ما',
-//                   textAlign: TextAlign.center,
-//                   style: AppTextStyles.titleStyleW
-//                 ),
-//                 onTap: () {
-//                   Get.to(const ContactUs());
-//                 },
-//               ),
-//               const Expanded(child: SizedBox()),
-//                Padding(
-//                 padding: const EdgeInsets.only(bottom:  (AppDimens.xlarge*2)),
-//                 child: SvgPicture.asset(Assets.svg.groper360 , height: size.height*0.034,)
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// void showFullScreenDrawer(BuildContext context) {
-//   showModalBottomSheet(
-//     context: context,
-//     sheetAnimationStyle: AnimationStyle(duration: const Duration(milliseconds: 800),reverseDuration: const Duration(milliseconds: 800)),
-//     isScrollControlled: true,
-//     builder: (BuildContext context) {
-//       return const CustomDrawer();
-//     },
-//     backgroundColor: Colors.transparent,
-//   );
-// }
