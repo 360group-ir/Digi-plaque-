@@ -15,11 +15,11 @@ import 'package:url_launcher/url_launcher.dart';
 // ignore: must_be_immutable
 class CostumBottomShit extends StatelessWidget {
   CostumBottomShit({
-    super.key,
+    super.key, required this.code,
   });
-
+final String code ;
   final Uri urlLoc = Uri.parse('https://maps.app.goo.gl/MBGHM2WZMhTNv8Fd7');
-  BusinessController businessController = Get.put(BusinessController());
+late final BusinessController businessController = Get.put(BusinessController(code));
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

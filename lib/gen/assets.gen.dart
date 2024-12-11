@@ -59,6 +59,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/Vector.svg
   String get vector => 'assets/svg/Vector.svg';
 
+  /// File path: assets/svg/baam.svg
+  String get baam => 'assets/svg/baam.svg';
+
   /// File path: assets/svg/copy.svg
   String get copy => 'assets/svg/copy.svg';
 
@@ -100,6 +103,7 @@ class $AssetsSvgGen {
         vector1,
         vector2,
         vector,
+        baam,
         copy,
         dlogo,
         groper360,

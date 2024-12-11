@@ -6,6 +6,7 @@ import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:srbiau_digital_plaque/main.dart';
+import 'package:srbiau_digital_plaque/view/all_compines.dart';
 import 'package:srbiau_digital_plaque/view/mainscreen.dart';
 
 
@@ -62,7 +63,6 @@ class CustomDrawer extends StatelessWidget {
                   Get.offAll(MainScreen());
                 },
               ),
-              // (size.height * 0.045).height,
               ListTile(
                 title: const Text(
                   'شرکت‌های مرکز رشد',
@@ -70,10 +70,9 @@ class CustomDrawer extends StatelessWidget {
                   style: AppTextStyles.tileTxtStyleW,
                 ),
                 onTap: () {
-                  Get.offAll(MainScreen());
+                  Get.to(AllBusinessListPage());
                 },
               ),
-              // (size.height * 0.045).height,
               ListTile(
                 title: const Text(
                   'ارتباط با ما',
@@ -85,8 +84,6 @@ class CustomDrawer extends StatelessWidget {
                   // Get.to(ContactUsPage());
                 },
               ),
-              // const Expanded(child: SizedBox()),
-              // (size.height * 0.045).height,
               Padding(
                 padding: const EdgeInsets.only(bottom: AppDimens.xlarge ),
                 child: SvgPicture.asset(

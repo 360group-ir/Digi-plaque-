@@ -46,6 +46,7 @@ dependencies:
   qr_flutter: ^4.1.0
   cached_network_image: ^3.4.1
   path_provider: ^2.0.14
+  flutter_native_splash: ^2.4.3
 
 dev_dependencies:
   flutter_test:

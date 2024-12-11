@@ -4,31 +4,31 @@ import 'package:srbiau_digital_plaque/component/api_constant.dart';
 import 'package:srbiau_digital_plaque/models/epelak_model.dart';
 
 class BusinessController extends GetxController {
-
   var isLoading = true.obs;
   var businessData = Rxn<BusinessData>();
+  String businessCode; 
 
   final Dio _dio = Dio(BaseOptions(
     baseUrl: ApiConstant.baseUrl,
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 10),
     headers: {
-      // 'Accept': 'application/json',
-      // 'Content-Type': 'application/json',
       'Accept-Language': 'fa',
     },
   ));
 
+  BusinessController(this.businessCode); 
+
   @override
   void onInit() {
     super.onInit();
-    fetchBusinessData(); // Fetch data when controller is initialized
+    fetchBusinessData(); 
   }
 
   Future<void> fetchBusinessData() async {
     try {
       isLoading(true); // Set loading to true
-      final response = await _dio.get(ApiConstant.code);
+      final response = await _dio.get(businessCode); //businessCode
       if (response.statusCode == 200) {
         final jsonData = response.data;
         if (jsonData['status'] == true) {

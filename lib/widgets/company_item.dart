@@ -5,7 +5,7 @@ import 'package:srbiau_digital_plaque/component/api_constant.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
-import 'package:srbiau_digital_plaque/main.dart';
+import 'package:srbiau_digital_plaque/view/eplak.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_textbutton.dart';
 
 class CompanyItem extends StatelessWidget {
@@ -75,7 +75,8 @@ class CompanyItem extends StatelessWidget {
             // width: 192,
             textButtonTitle: "اطلاعات بیشتر",
             onPressed: () {
-              Get.toNamed(RouteName.routeEpelak);
+              // Get.toNamed(RouteName.routeEpelak);
+              Get.to(Eplak( code: pelak));
             },
           )
         ],

@@ -28,13 +28,13 @@ import 'package:url_launcher/url_launcher.dart';
 class Eplak extends StatelessWidget {
   Eplak({
     super.key,
-    required this.mainColor,
-    required this.visiblity,
+    required this.code,
   });
+  late String code;
+  late final BusinessController businessController =
+      Get.put(BusinessController(code));
+  final Color mainColor = AppColors.primaryPelak;
 
-  BusinessController businessController = Get.put(BusinessController());
-  final Color mainColor;
-  bool visiblity;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -202,7 +202,9 @@ class Eplak extends StatelessWidget {
                                                 exitBottomSheetDuration:
                                                     const Duration(
                                                         milliseconds: 300),
-                                                CostumBottomShit());
+                                                CostumBottomShit(
+                                                  code: code,
+                                                ));
                                           },
                                         ),
                                       ],
@@ -249,9 +251,13 @@ class Eplak extends StatelessWidget {
                           //Share button
                           ActionButton(
                             size: size,
-                            companyName: businessController.businessData.value!.name.toString(),
-                            phoneNumber: businessController.businessData.value!.phone,
-                            email:businessController.businessData.value!.email.toString() ,
+                            companyName: businessController
+                                .businessData.value!.name
+                                .toString(),
+                            phoneNumber:
+                                businessController.businessData.value!.phone,
+                            email: businessController.businessData.value!.email
+                                .toString(),
                           ),
                         ],
                       ),

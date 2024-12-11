@@ -72,21 +72,23 @@ class _MainScreenState extends State<MainScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset(
-                    Assets.png.loogo.path,
-                    height: size.height * 0.15,
+                  SvgPicture.asset(
+                    Assets.svg.baam,
+                    height: size.height * 0.16,
+                    colorFilter: const ColorFilter.mode(
+                        AppColors.neutralLight, BlendMode.srcIn),
                   ),
-                  (size.height * 0.03).height,
+                  (size.height * 0.025).height,
                   Text(
                     AppText.uni,
                     style:
                         AppTextStyles.titleStyleB.copyWith(color: Colors.white),
                   ),
-                  (size.height * 0.03).height,
+                  (size.height * 0.025).height,
                   QrImageView(
                     data: Uri.base.toString(),
                     version: QrVersions.auto,
-                    size: size.height * 0.14,
+                    size: size.height * 0.13,
                     dataModuleStyle: const QrDataModuleStyle(
                         dataModuleShape: QrDataModuleShape.square,
                         color: Colors.white),
@@ -153,21 +155,27 @@ class _MainScreenState extends State<MainScreen> {
                               ),
                               IconWidget(
                                 ontap: () {
-                                  launchURL("https://roshd.center/");
+                                  launchURL(
+                                      "https://innovationroof.srbiau.ac.ir/");
                                 },
                                 assetsName: Assets.svg.icon,
                                 text: AppText.website,
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  setState(() {
-                                    Get.bottomSheet(
-                                        enterBottomSheetDuration:
-                                            const Duration(milliseconds: 400),
-                                        exitBottomSheetDuration:
-                                            const Duration(milliseconds: 300),
-                                        MainBottomShit());
-                                  });
+                                  if (Responsive.isDesktop(context)) {
+                                    launchURL(
+                                        'https://maps.app.goo.gl/AWRzbnFLYJu42dq1A?g_st=com.google.maps.preview.copy');
+                                  } else {
+                                    setState(() {
+                                      Get.bottomSheet(
+                                          enterBottomSheetDuration:
+                                              const Duration(milliseconds: 400),
+                                          exitBottomSheetDuration:
+                                              const Duration(milliseconds: 300),
+                                          MainBottomShit());
+                                    });
+                                  }
                                 },
                                 child: IconWidget(
                                   assetsName: Assets.svg.icon1,
@@ -177,6 +185,9 @@ class _MainScreenState extends State<MainScreen> {
                               IconWidget(
                                 assetsName: Assets.svg.icon2,
                                 text: AppText.email,
+                                ontap: () {
+                                  sendEmail('rkbs_kh@yahoo.com');
+                                },
                               ),
                             ],
                           )
@@ -188,7 +199,7 @@ class _MainScreenState extends State<MainScreen> {
 
                   const Padding(
                     padding: EdgeInsets.fromLTRB(AppDimens.padding,
-                        (AppDimens.xlarge), AppDimens.padding, AppDimens.small),
+                        (AppDimens.xlarge), AppDimens.padding, AppDimens.padding),
                     child: Text(
                       AppText.roshdCompanies,
                       style: AppTextStyles.titleStyleB,

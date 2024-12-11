@@ -58,7 +58,6 @@ class CompanyList extends StatelessWidget {
                           )),
                       IconButton(
                           onPressed: () {
-                            // showFullScreenDrawer(context);
                             showCenteredDialog(context);
                           },
                           icon: SvgPicture.asset(Assets.svg.group)),

@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:srbiau_digital_plaque/component/api_constant.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/responsive.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
 import 'package:srbiau_digital_plaque/view/contact_us.dart';
-import 'package:srbiau_digital_plaque/view/eplak.dart';
 import 'package:srbiau_digital_plaque/view/mainscreen.dart';
+import 'package:srbiau_digital_plaque/view/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor:AppColors.primaryPelak,
-      systemNavigationBarColor:AppColors.primaryPelak));
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: AppColors.primaryPelak,
+      systemNavigationBarColor: AppColors.primaryPelak));
   runApp(
     LayoutBuilder(
       builder: (context, constraints) {
@@ -23,7 +22,7 @@ void main() {
             constraints: BoxConstraints(
                 maxWidth: Responsive.isDesktop(context)
                     // ? 1080
-                    ?constraints.maxWidth
+                    ? constraints.maxWidth
                     : Responsive.isTablet(context)
                         ? constraints.maxWidth
                         : Responsive.isMobile(context)
@@ -45,11 +44,10 @@ class MyApp extends StatelessWidget {
       title: 'e-pelak',
       locale: const Locale("En"),
       theme: ThemeData(
-        dividerColor: Colors.transparent,
-        textTheme: GoogleFonts.vazirmatnTextTheme(),
-        useMaterial3: true,
-        colorSchemeSeed: AppColors.primaryPelak
-      ),
+          dividerColor: Colors.transparent,
+          textTheme: GoogleFonts.vazirmatnTextTheme(),
+          useMaterial3: true,
+          colorSchemeSeed: AppColors.primaryPelak),
       defaultTransition: Transition.cupertinoDialog,
       transitionDuration: Durations.extralong4,
       getPages: [
@@ -59,22 +57,21 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: RouteName.routeCompaneyList,
-          page: () =>  CompanyList(
+          page: () => CompanyList(
             mainColor: AppColors.primaryPelak,
           ),
         ),
-        GetPage(
-          name: RouteName.routeEpelak,
-          page: () => Eplak(mainColor: const Color.fromARGB(255, 28, 198, 201), visiblity: true),
-        ),
+        // GetPage(
+        //   name: RouteName.routeEpelak,
+        //   page: () => Eplak(mainColor: const Color.fromARGB(255, 28, 198, 201), visiblity: true),
+        // ),
         GetPage(
           name: RouteName.contactUs,
           page: () => const ContactUs(),
         ),
       ],
       debugShowCheckedModeBanner: false,
-      
-      home: MainScreen(),
+      home: const Splashscreen(),
     );
   }
 }
@@ -84,6 +81,6 @@ class RouteName {
 
   static String routeMainScreen = "/SRB-IAU";
   static String routeCompaneyList = "/BlockList";
-  static String routeEpelak = "/e-pelak/${ApiConstant.code}";
+  static String routeEpelak = "/e-pelak";
   static String contactUs = "/ContactUs";
 }

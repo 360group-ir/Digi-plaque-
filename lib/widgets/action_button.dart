@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'dart:html' as html;
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
@@ -15,7 +18,7 @@ class ActionButton extends StatelessWidget {
     required this.size,
     required this.companyName,
     required this.phoneNumber,
-     this.email = '',
+    this.email = '',
   });
 
   final Size size;
@@ -23,35 +26,33 @@ class ActionButton extends StatelessWidget {
   final String phoneNumber;
   final String email;
 
-  void saveVcfFile() {
-    // ساخت محتوای فایل VCF
-    final vcfContent = """
+  Future<void> downloadVcf(
+      String name, String org, String phone, String email) async {
+    try {
+      // ساخت محتوای VCF
+      final vcfContent = """
 BEGIN:VCARD
 VERSION:3.0
-FN:$companyName
-ORG:$companyName
-TEL:$phoneNumber
+FN:$name
+ORG:$org
+TEL:$phone
 EMAIL:$email
 END:VCARD
 """;
 
-  try {
-    // ساخت محتوای فایل VCF
-    final bytes = Uint8List.fromList(vcfContent.codeUnits);
-    final blob = html.Blob([bytes], 'text/vcard');
+      // ذخیره‌سازی فایل VCF
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/contact.vcf');
+      await file.writeAsString(vcfContent);
 
-    // ایجاد لینک برای دانلود
-    final url = html.Url.createObjectUrlFromBlob(blob);
-    final anchor = html.AnchorElement(href: url)
-      ..target = 'blank'
-      ..download = 'contact.vcf' // نام فایل دانلودی
-      ..click();
-    html.Url.revokeObjectUrl(url); // آزاد کردن حافظه
-  } catch (e) {
-    print("Error while downloading VCF: $e");
+      // در اینجا می‌توانید از پکیج url_launcher برای باز کردن فایل استفاده کنید
+      // یا از هر روش دیگری که مناسب است.
+      // به عنوان مثال:
+      // await OpenFile.open(file.path);
+    } catch (e) {
+      print("Error while downloading VCF: $e");
+    }
   }
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +80,8 @@ END:VCARD
                 )),
             (size.width * 0.05).width,
             IconButton(
-                onPressed: saveVcfFile,
+                onPressed: () async => await downloadVcf(
+                    companyName, companyName, phoneNumber, email),
                 icon: SvgPicture.asset(Assets.svg.save,
                     colorFilter: const ColorFilter.mode(
                         AppColors.neutralDarker, BlendMode.srcIn))),
