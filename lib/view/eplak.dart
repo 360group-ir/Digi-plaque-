@@ -28,11 +28,12 @@ import 'package:url_launcher/url_launcher.dart';
 class Eplak extends StatelessWidget {
   Eplak({
     super.key,
-    required this.code,
+    // required this.code,
   });
-  late String code;
+
+  String pelak = Get.parameters['pelak']!;
   late final BusinessController businessController =
-      Get.put(BusinessController(code));
+      Get.put(BusinessController(pelak));
   final Color mainColor = AppColors.primaryPelak;
 
   @override
@@ -203,7 +204,7 @@ class Eplak extends StatelessWidget {
                                                     const Duration(
                                                         milliseconds: 300),
                                                 CostumBottomShit(
-                                                  code: code,
+                                                  code: pelak,
                                                 ));
                                           },
                                         ),
@@ -229,8 +230,7 @@ class Eplak extends StatelessWidget {
                                   style: AppTextStyles.descriptionStyle
                                       .copyWith(height: 2),
                                   textDirection: TextDirection.rtl,
-                                  textAlign: TextAlign.justify,
-                                  locale: const Locale("fa"),
+                                  textAlign: TextAlign.right,
                                 )
                               ],
                             ),

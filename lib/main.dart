@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/responsive.dart';
+import 'package:srbiau_digital_plaque/view/all_compines.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
-import 'package:srbiau_digital_plaque/view/contact_us.dart';
+import 'package:srbiau_digital_plaque/view/eplak.dart';
 import 'package:srbiau_digital_plaque/view/mainscreen.dart';
-import 'package:srbiau_digital_plaque/view/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,21 +57,23 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: RouteName.routeCompaneyList,
-          page: () => CompanyList(
-            mainColor: AppColors.primaryPelak,
-          ),
+          page: () => CompanyList(),
+        ),
+        GetPage(
+          name: RouteName.routeEpelak,
+          page: () => Eplak(),
         ),
         // GetPage(
-        //   name: RouteName.routeEpelak,
-        //   page: () => Eplak(mainColor: const Color.fromARGB(255, 28, 198, 201), visiblity: true),
+        //   name: RouteName.contactUs,
+        //   page: () => const ContactUs(),
         // ),
         GetPage(
-          name: RouteName.contactUs,
-          page: () => const ContactUs(),
-        ),
+          name: RouteName.allCompines,
+          page: () => AllBusinessListPage(),
+        )
       ],
       debugShowCheckedModeBanner: false,
-      home: const Splashscreen(),
+      initialRoute: RouteName.routeMainScreen,
     );
   }
 }
@@ -79,8 +81,9 @@ class MyApp extends StatelessWidget {
 class RouteName {
   RouteName._();
 
-  static String routeMainScreen = "/SRB-IAU";
+  static String routeMainScreen = "/";
   static String routeCompaneyList = "/BlockList";
-  static String routeEpelak = "/e-pelak";
+  static String routeEpelak = "/:pelak";
   static String contactUs = "/ContactUs";
+  static String allCompines = "/allCompines";
 }

@@ -10,7 +10,7 @@ import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/component/responsive.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'package:srbiau_digital_plaque/view/company_list.dart';
+import 'package:srbiau_digital_plaque/main.dart';
 import 'package:srbiau_digital_plaque/view/eplak.dart';
 import 'package:srbiau_digital_plaque/widgets/Expan_Gruope.dart';
 import 'package:srbiau_digital_plaque/widgets/Icon_widget.dart';
@@ -127,7 +127,7 @@ class _MainScreenState extends State<MainScreen> {
                             height: 2,
                           ),
                           textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.justify,
+                          textAlign: TextAlign.right,
                           locale: const Locale("fa"),
                         )
                       ],
@@ -198,8 +198,11 @@ class _MainScreenState extends State<MainScreen> {
                   //TODO: job offers
 
                   const Padding(
-                    padding: EdgeInsets.fromLTRB(AppDimens.padding,
-                        (AppDimens.xlarge), AppDimens.padding, AppDimens.padding),
+                    padding: EdgeInsets.fromLTRB(
+                        AppDimens.padding,
+                        (AppDimens.xlarge),
+                        AppDimens.padding,
+                        AppDimens.padding),
                     child: Text(
                       AppText.roshdCompanies,
                       style: AppTextStyles.titleStyleB,
@@ -222,53 +225,29 @@ class _MainScreenState extends State<MainScreen> {
                                     horizontal: AppDimens.small,
                                     vertical: AppDimens.small),
                                 child: Text(
-                                  "طبقه همکف",
-                                  style: AppTextStyles.tileTxtStyle,
-                                ),
-                              )),
-                          CostumTextButton(
-                            textButtonTitle: 'بلوک E',
-                            onPressed: () {
-                              // Get.toNamed(RouteName.routeCompaneyList);
-                              Get.to(CompanyList(
-                                block: "E",
-                                building: 'کتابخوانه',
-                                floor: '1',
-                                mainColor: widget.mainColor,
-                              ));
-                            },
-                          ),
-                          const Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: AppDimens.small,
-                                    vertical: AppDimens.small),
-                                child: Text(
                                   "طبقه اول",
                                   style: AppTextStyles.tileTxtStyle,
                                 ),
                               )),
                           CostumTextButton(
-                            textButtonTitle: 'بلوک B',
+                            textButtonTitle: 'بلوک C',
                             onPressed: () {
-                              Get.to(CompanyList(
-                                block: "B",
-                                building: 'کتابخوانه',
-                                floor: '1',
-                                mainColor: widget.mainColor,
-                              ));
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=1&block=C");
                             },
                           ),
                           CostumTextButton(
-                            textButtonTitle: 'بلوک C',
+                            textButtonTitle: 'بلوک B',
                             onPressed: () {
-                              Get.to(CompanyList(
-                                block: "C",
-                                building: 'کتابخوانه',
-                                floor: '1',
-                                mainColor: widget.mainColor,
-                              ));
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=1&block=B");
+                            },
+                          ),
+                          CostumTextButton(
+                            textButtonTitle: 'بلوک A',
+                            onPressed: () {
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=1&block=A");
                             },
                           ),
                           const Align(
@@ -278,19 +257,22 @@ class _MainScreenState extends State<MainScreen> {
                                     horizontal: AppDimens.small,
                                     vertical: AppDimens.small),
                                 child: Text(
-                                  "طبقه چهارم",
+                                  "طبقه سوم",
                                   style: AppTextStyles.tileTxtStyle,
                                 ),
                               )),
                           CostumTextButton(
-                            textButtonTitle: 'بلوک C',
+                            textButtonTitle: 'بلوک A',
                             onPressed: () {
-                              Get.to(CompanyList(
-                                block: "C",
-                                building: 'کتابخوانه',
-                                floor: '4',
-                                mainColor: widget.mainColor,
-                              ));
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=3&block=A");
+                            },
+                          ),
+                          CostumTextButton(
+                            textButtonTitle: 'بلوک B',
+                            onPressed: () {
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=3&block=B");
                             },
                           ),
                           const Align(
@@ -305,41 +287,77 @@ class _MainScreenState extends State<MainScreen> {
                                 ),
                               )),
                           CostumTextButton(
-                            textButtonTitle: 'کل طبقه',
+                            textButtonTitle: 'بلوک C',
                             onPressed: () {
-                              Get.to(CompanyList(
-                                block: "E",
-                                building: 'کتابخوانه',
-                                floor: '5',
-                                mainColor: widget.mainColor,
-                              ));
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=5&block=C");
+                            },
+                          ),
+                          CostumTextButton(
+                            textButtonTitle: 'بلوک A',
+                            onPressed: () {
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=5&block=A");
+                            },
+                          ),
+                          CostumTextButton(
+                            textButtonTitle: 'بلوک B',
+                            onPressed: () {
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=5&block=B");
+                            },
+                          ),
+                          CostumTextButton(
+                            textButtonTitle: 'بلوک C',
+                            onPressed: () {
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=5&block=C");
+                            },
+                          ),
+                          const Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: AppDimens.small,
+                                    vertical: AppDimens.small),
+                                child: Text(
+                                  "طبقه همکف",
+                                  style: AppTextStyles.tileTxtStyle,
+                                ),
+                              )),
+                          CostumTextButton(
+                            textButtonTitle: 'بلوک A',
+                            onPressed: () {
+                              // Get.toNamed(RouteName.routeCompaneyList);
+                              Get.toNamed(
+                                  "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=0&block=A");
                             },
                           ),
                         ]),
                   ),
-
-                  Animate(
-                    effects: const [
-                      MoveEffect(duration: Durations.extralong1),
-                    ],
-                    child: ExpanGroup(
-                        expantileOpen: false,
-                        title: "ساختمان شیخ‌بهایی",
-                        mainColor: widget.mainColor,
-                        children: const [
-                          CostumTextButton(
-                            textButtonTitle: 'کل طبقه',
-                            // onPressed: () {
-                            //   Get.to(CompanyList(
-                            //     block: "E",
-                            //     building: 'کتابخوانه',
-                            //     floor: '5',
-                            //     mainColor: widget.mainColor,
-                            //   ));
-                            // },
-                          ),
-                        ]),
-                  ),
+                  //TODO
+                  // Animate(
+                  //   effects: const [
+                  //     MoveEffect(duration: Durations.extralong1),
+                  //   ],
+                  //   child: ExpanGroup(
+                  //       expantileOpen: false,
+                  //       title: "ساختمان شیخ‌بهایی",
+                  //       mainColor: widget.mainColor,
+                  //       children: const [
+                  //         CostumTextButton(
+                  //           textButtonTitle: 'کل طبقه',
+                  //           // onPressed: () {
+                  //           //   Get.to(CompanyList(
+                  //           //     block: "E",
+                  //           //     building: 'کتابخوانه',
+                  //           //     floor: '5',
+                  //           //     mainColor: widget.mainColor,
+                  //           //   ));
+                  //           // },
+                  //         ),
+                  //       ]),
+                  // ),
                 ],
               ),
             ),

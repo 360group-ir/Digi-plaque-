@@ -28,6 +28,7 @@ class AllBusinessController extends GetxController {
       }
     } catch (e) {
       Get.snackbar('Error', e.toString());
+      print(e);
     } finally {
       isLoading(false);
     }

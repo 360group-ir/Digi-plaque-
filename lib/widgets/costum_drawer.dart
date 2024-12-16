@@ -6,8 +6,7 @@ import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:srbiau_digital_plaque/main.dart';
-import 'package:srbiau_digital_plaque/view/all_compines.dart';
-import 'package:srbiau_digital_plaque/view/mainscreen.dart';
+import 'package:srbiau_digital_plaque/view/contact_us.dart';
 
 
 class CustomDrawer extends StatelessWidget {
@@ -60,7 +59,7 @@ class CustomDrawer extends StatelessWidget {
                   style: AppTextStyles.tileTxtStyleW,
                 ),
                 onTap: () {
-                  Get.offAll(MainScreen());
+                  Get.offAllNamed(RouteName.routeMainScreen);
                 },
               ),
               ListTile(
@@ -70,7 +69,7 @@ class CustomDrawer extends StatelessWidget {
                   style: AppTextStyles.tileTxtStyleW,
                 ),
                 onTap: () {
-                  Get.to(AllBusinessListPage());
+                  Get.toNamed(RouteName.allCompines);
                 },
               ),
               ListTile(
@@ -80,8 +79,7 @@ class CustomDrawer extends StatelessWidget {
                   style: AppTextStyles.tileTxtStyleW,
                 ),
                 onTap: () {
-                  Get.toNamed(RouteName.contactUs);
-                  // Get.to(ContactUsPage());
+                  Get.to(const ContactUs());
                 },
               ),
               Padding(

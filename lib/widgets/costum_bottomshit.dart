@@ -15,11 +15,13 @@ import 'package:url_launcher/url_launcher.dart';
 // ignore: must_be_immutable
 class CostumBottomShit extends StatelessWidget {
   CostumBottomShit({
-    super.key, required this.code,
+    super.key,
+    required this.code,
   });
-final String code ;
+  final String code;
   final Uri urlLoc = Uri.parse('https://maps.app.goo.gl/MBGHM2WZMhTNv8Fd7');
-late final BusinessController businessController = Get.put(BusinessController(code));
+  late final BusinessController businessController =
+      Get.put(BusinessController(code));
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -110,10 +112,11 @@ late final BusinessController businessController = Get.put(BusinessController(co
                       borderRadius: BorderRadius.circular(4)),
                   child: TextButton(
                     onPressed: () async {
-                      await Clipboard.setData(
-                           ClipboardData(text: ''' دانشگاه آزاد اسلامی واحد علوم وتحقیقات
+                      await Clipboard.setData(ClipboardData(
+                        text: ''' دانشگاه آزاد اسلامی واحد علوم وتحقیقات
 کتابخانه دکتر حبیبی
-طبقه ${businessController.businessData.value!.floor} - بلوک ${businessController.businessData.value!.block} - پلاک ${businessController.businessData.value!.unit}''',));
+طبقه ${businessController.businessData.value!.floor} - بلوک ${businessController.businessData.value!.block} - پلاک ${businessController.businessData.value!.unit}''',
+                      ));
                       Get.snackbar("Copied", 'متن کپی شد',
                           backgroundColor: Colors.green,
                           duration: const Duration(seconds: 3));

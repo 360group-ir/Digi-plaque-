@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:srbiau_digital_plaque/component/api_constant.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/extentions.dart';
+import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
-import 'package:srbiau_digital_plaque/view/eplak.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_textbutton.dart';
 
 class CompanyItem extends StatelessWidget {
@@ -48,35 +49,62 @@ class CompanyItem extends StatelessWidget {
                   Text(
                     title,
                     style: AppTextStyles.tileTxtStyle,
+                    overflow: TextOverflow.fade,
                   ),
                   Text(
-                    "پلاک $pelak",
+                    " $pelak پلاک",
                     style: AppTextStyles.descriptionStyle,
                   ),
                   AppDimens.xlarge.height,
                   Text(
                     field,
                     style: AppTextStyles.expansionTileChildren,
+                    overflow: TextOverflow.fade,
+                    softWrap: false,
+                    maxLines: 2,
                   ),
                 ],
               ),
-              AppDimens.xlarge.width,
-              SizedBox(
-                  height: size.height * 0.131,
-                  width: size.height * 0.131,
-                  child: CachedNetworkImage(
-                    imageUrl: ApiConstant.dowloadurl + imgurl,
-                    height: size.height * 0.13,
-                  ))
+              AppDimens.large.width,
+              // Image.network(
+              //   // 'https://360tools.io/epelak/api/files/logo1.png'
+              //   "${ApiConstant.dowloadurl}$imgurl",
+              //   fit: BoxFit.cover,
+              //   height: size.height * 0.131,
+              //   width: size.height * 0.131,
+              //   loadingBuilder: (context, child, loadingProgress) {
+              //     return const Center(
+              //       child: SpinKitFoldingCube(
+              //         color: Colors.white,
+              //       ),
+              //     );
+              //   },
+              // ),
+              CachedNetworkImage(
+                imageUrl: "${ApiConstant.dowloadurl}$imgurl",
+                // imageUrl: 'https://360tools.io/epelak/api/files/logo1.png',
+                fit: BoxFit.cover,
+                height: size.height * 0.131,
+                width: size.height * 0.131,
+                placeholder: (context, url) {
+                  return const Center(
+                    child:  SpinKitFoldingCube(
+                      color: AppColors.primaryPelak,
+                    ),
+                  );
+                },
+                errorWidget: (context, url, error) {
+                  return SizedBox(height: size.height * 0.131,
+                width: size.height * 0.131,child: const Icon(Icons.error));
+                },
+              ),
             ],
           ),
           (size.height * 0.0085).height,
           CostumTextButton(
-            // width: 192,
             textButtonTitle: "اطلاعات بیشتر",
             onPressed: () {
-              // Get.toNamed(RouteName.routeEpelak);
-              Get.to(Eplak( code: pelak));
+              Get.toNamed("/$pelak");
             },
           )
         ],
