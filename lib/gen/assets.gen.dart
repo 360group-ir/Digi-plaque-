@@ -32,6 +32,9 @@ class $AssetsPngGen {
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/360Black.png
+  AssetGenImage get a360Black => const AssetGenImage('assets/svg/360Black.png');
+
   /// File path: assets/svg/Group.svg
   String get group => 'assets/svg/Group.svg';
 
@@ -68,6 +71,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/dlogo.svg
   String get dlogo => 'assets/svg/dlogo.svg';
 
+  /// File path: assets/svg/footer.svg
+  String get footer => 'assets/svg/footer.svg';
+
   /// File path: assets/svg/groper360.svg
   String get groper360 => 'assets/svg/groper360.svg';
 
@@ -93,7 +99,8 @@ class $AssetsSvgGen {
   String get upload => 'assets/svg/upload.svg';
 
   /// List of all assets
-  List<String> get values => [
+  List<dynamic> get values => [
+        a360Black,
         group,
         icon1,
         icon2,
@@ -106,6 +113,7 @@ class $AssetsSvgGen {
         baam,
         copy,
         dlogo,
+        footer,
         groper360,
         lang,
         save,

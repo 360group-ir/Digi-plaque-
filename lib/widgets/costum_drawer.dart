@@ -8,7 +8,6 @@ import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:srbiau_digital_plaque/main.dart';
 import 'package:srbiau_digital_plaque/view/contact_us.dart';
 
-
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -16,15 +15,20 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Animate(
-      effects: const[  ScaleEffect(duration: Duration(milliseconds: 500) ,) , FadeEffect(duration: Duration(milliseconds: 500))],
+      effects: const [
+        ScaleEffect(
+          duration: Duration(milliseconds: 500),
+        ),
+        FadeEffect(duration: Duration(milliseconds: 500))
+      ],
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: Colors.transparent,
         child: Container(
-          width: size.width ,
-          height: size.height, 
+          width: size.width,
+          height: size.height,
           decoration: BoxDecoration(
-            color: const  Color.fromARGB(255, 28, 198, 201),
+            color: const Color.fromARGB(255, 28, 198, 201),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -47,7 +51,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   Image.asset(
                     Assets.png.baam.path,
-                    height: size.height * 0.26,
+                    height: size.height * 0.25,
                   ),
                 ],
               ),
@@ -83,11 +87,15 @@ class CustomDrawer extends StatelessWidget {
                 },
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: AppDimens.xlarge ),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: AppDimens.padding, vertical: AppDimens.xlarge),
                 child: SvgPicture.asset(
-                  Assets.svg.groper360,
-                  height: size.height * 0.04,
-                  colorFilter: const ColorFilter.mode(Colors.white60, BlendMode.srcIn),
+                  Assets.svg.footer,
+                  height: size.height * 0.02,
+                  colorFilter: const ColorFilter.mode(
+                      // Color.fromARGB(255, 178, 178, 178)
+                      Colors.white70,
+                      BlendMode.srcIn),
                 ),
               ),
             ],

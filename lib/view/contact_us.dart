@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:srbiau_digital_plaque/component/dimens.dart';
-import 'package:srbiau_digital_plaque/component/extentions.dart';
 import 'package:srbiau_digital_plaque/component/res/app_colors.dart';
 import 'package:srbiau_digital_plaque/component/res/app_text.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
@@ -17,7 +16,7 @@ class ContactUs extends StatelessWidget {
     super.key,
   });
 
-  final Color maincolor = const  Color.fromARGB(255, 28, 198, 201);
+  final Color maincolor = const Color.fromARGB(255, 28, 198, 201);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -32,8 +31,8 @@ class ContactUs extends StatelessWidget {
                   height: size.height * 0.086,
                   color: maincolor,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: AppDimens.padding),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimens.padding),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -54,12 +53,13 @@ class ContactUs extends StatelessWidget {
                     ),
                   ),
                 )),
-            body: SingleChildScrollView(
+            body: Flexible(
               child: Center(
                 child: SizedBox(
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                    maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
+                        maxWidth:
+                            Responsive.isDesktop(context) ? 1080 : size.width),
                     child: Column(
                       children: [
                         const Align(
@@ -77,14 +77,16 @@ class ContactUs extends StatelessWidget {
                         SendReqForm(
                           color: maincolor,
                         ),
-                        (size.height*0.11).height,
+                        // (size.height * 0.11).height,
+                        const Expanded(child: SizedBox()),
                         Padding(
                           padding: const EdgeInsets.all(AppDimens.padding),
                           child: SvgPicture.asset(
-                            Assets.svg.groper360,
-                            height: size.height * 0.035,
+                            Assets.svg.footer,
+                            height: size.height * 0.02,
                             colorFilter: const ColorFilter.mode(
-                                Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
+                                Color.fromARGB(255, 178, 178, 178),
+                                BlendMode.srcIn),
                           ),
                         ),
                       ],

@@ -373,10 +373,10 @@ class _MainScreenState extends State<MainScreen> {
 
             (size.height * 0.015).height,
             Padding(
-              padding: const EdgeInsets.all(AppDimens.medium),
+              padding: const EdgeInsets.all(AppDimens.padding),
               child: SvgPicture.asset(
-                Assets.svg.groper360,
-                height: size.height * 0.035,
+                Assets.svg.footer,
+                height: size.height * 0.02,
                 colorFilter: const ColorFilter.mode(
                     Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
               ),

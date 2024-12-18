@@ -8,9 +8,11 @@ import 'package:srbiau_digital_plaque/view/all_compines.dart';
 import 'package:srbiau_digital_plaque/view/company_list.dart';
 import 'package:srbiau_digital_plaque/view/eplak.dart';
 import 'package:srbiau_digital_plaque/view/mainscreen.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+   setPathUrlStrategy();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: AppColors.primaryPelak,
       systemNavigationBarColor: AppColors.primaryPelak));
@@ -63,10 +65,7 @@ class MyApp extends StatelessWidget {
           name: RouteName.routeEpelak,
           page: () => Eplak(),
         ),
-        // GetPage(
-        //   name: RouteName.contactUs,
-        //   page: () => const ContactUs(),
-        // ),
+
         GetPage(
           name: RouteName.allCompines,
           page: () => AllBusinessListPage(),

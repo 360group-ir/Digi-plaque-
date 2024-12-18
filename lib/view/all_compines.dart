@@ -57,7 +57,7 @@ class AllBusinessListPage extends StatelessWidget {
         body: Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(
-                  maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
+                maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
             child: Column(
               children: [
                 Padding(
@@ -66,8 +66,12 @@ class AllBusinessListPage extends StatelessWidget {
                     controller: searchController,
                     decoration: const InputDecoration(
                       label: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text('جستوجو' , textDirection: TextDirection.rtl,textAlign: TextAlign.right,)),
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            'جستوجو',
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.right,
+                          )),
                       labelStyle: AppTextStyles.descriptionStyle,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(4))),
@@ -94,11 +98,15 @@ class AllBusinessListPage extends StatelessWidget {
                         ],
                       );
                     }
-            
+
                     if (controller.businesses.isEmpty) {
-                      return const Center(child: Text('هیچ شرکتی یافت نشد', style: AppTextStyles.landingPageTools,));
+                      return const Center(
+                          child: Text(
+                        'هیچ شرکتی یافت نشد',
+                        style: AppTextStyles.landingPageTools,
+                      ));
                     }
-                    
+
                     return ListView.builder(
                       itemCount: controller.businesses.length,
                       itemBuilder: (context, index) {

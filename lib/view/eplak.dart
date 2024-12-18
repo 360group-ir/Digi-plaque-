@@ -188,7 +188,7 @@ class Eplak extends StatelessWidget {
                                           text: AppText.website,
                                           ontap: () {
                                             launchURL(
-                                                "https://${businessController.businessData.value!.website.toString()}");
+                                                businessController.businessData.value!.website.toString());
                                           },
                                         ),
                                         IconWidget(
@@ -266,10 +266,10 @@ class Eplak extends StatelessWidget {
                     (size.height * 0.015).height,
                     //footer
                     Padding(
-                      padding: const EdgeInsets.all(AppDimens.medium),
+                      padding: const EdgeInsets.all(AppDimens.padding),
                       child: SvgPicture.asset(
-                        Assets.svg.groper360,
-                        height: size.height * 0.035,
+                        Assets.svg.footer,
+                        height: size.height * 0.02,
                         colorFilter: const ColorFilter.mode(
                             Color.fromARGB(255, 178, 178, 178),
                             BlendMode.srcIn),
