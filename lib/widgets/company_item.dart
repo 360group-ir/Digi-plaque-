@@ -66,20 +66,6 @@ class CompanyItem extends StatelessWidget {
                 ],
               ),
               AppDimens.large.width,
-              // Image.network(
-              //   // 'https://360tools.io/epelak/api/files/logo1.png'
-              //   "${ApiConstant.dowloadurl}$imgurl",
-              //   fit: BoxFit.cover,
-              //   height: size.height * 0.131,
-              //   width: size.height * 0.131,
-              //   loadingBuilder: (context, child, loadingProgress) {
-              //     return const Center(
-              //       child: SpinKitFoldingCube(
-              //         color: Colors.white,
-              //       ),
-              //     );
-              //   },
-              // ),
               CachedNetworkImage(
                 imageUrl: "${ApiConstant.dowloadurl}$imgurl",
                 // imageUrl: 'https://360tools.io/epelak/api/files/logo1.png',

@@ -335,35 +335,11 @@ class _MainScreenState extends State<MainScreen> {
                           ),
                         ]),
                   ),
-                  //TODO
-                  // Animate(
-                  //   effects: const [
-                  //     MoveEffect(duration: Durations.extralong1),
-                  //   ],
-                  //   child: ExpanGroup(
-                  //       expantileOpen: false,
-                  //       title: "ساختمان شیخ‌بهایی",
-                  //       mainColor: widget.mainColor,
-                  //       children: const [
-                  //         CostumTextButton(
-                  //           textButtonTitle: 'کل طبقه',
-                  //           // onPressed: () {
-                  //           //   Get.to(CompanyList(
-                  //           //     block: "E",
-                  //           //     building: 'کتابخوانه',
-                  //           //     floor: '5',
-                  //           //     mainColor: widget.mainColor,
-                  //           //   ));
-                  //           // },
-                  //         ),
-                  //       ]),
-                  // ),
                 ],
               ),
             ),
 
             //Share button
-            //TODO
             ActionButton(
               size: size,
               companyName: AppText.uni,

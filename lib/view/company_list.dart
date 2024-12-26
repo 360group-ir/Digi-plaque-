@@ -34,8 +34,8 @@ class CompanyList extends StatelessWidget {
   Widget build(BuildContext context) {
     compListController.fetchCompanyList(
         building: building, floor: floor, block: block);
-    print(compListController.companyList);
-    print(building + floor + block);
+    // print(compListController.companyList);
+    // print(building + floor + block);
 
     Size size = MediaQuery.of(context).size;
     return SafeArea(
