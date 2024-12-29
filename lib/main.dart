@@ -12,7 +12,7 @@ import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-   setPathUrlStrategy();
+  setPathUrlStrategy();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: AppColors.primaryPelak,
       systemNavigationBarColor: AppColors.primaryPelak));
@@ -65,7 +65,6 @@ class MyApp extends StatelessWidget {
           name: RouteName.routeEpelak,
           page: () => Eplak(),
         ),
-
         GetPage(
           name: RouteName.allCompines,
           page: () => AllBusinessListPage(),

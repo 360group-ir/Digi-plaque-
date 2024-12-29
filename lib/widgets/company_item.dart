@@ -68,7 +68,6 @@ class CompanyItem extends StatelessWidget {
               AppDimens.large.width,
               CachedNetworkImage(
                 imageUrl: "${ApiConstant.dowloadurl}$imgurl",
-                // imageUrl: 'https://360tools.io/epelak/api/files/logo1.png',
                 fit: BoxFit.cover,
                 height: size.height * 0.131,
                 width: size.height * 0.131,
