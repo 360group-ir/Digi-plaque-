@@ -30,7 +30,7 @@ class Complex {
 
 class BusinessData {
   final String name;
-  final String logo;
+   String logo = 'https://360tools.io/baam.png';
   final String description;
   final String businessField;
   final String address;
@@ -47,7 +47,7 @@ class BusinessData {
 
   BusinessData({
     required this.name,
-    required this.logo,
+     required this.logo,
     required this.description,
     required this.businessField,
     required this.address,

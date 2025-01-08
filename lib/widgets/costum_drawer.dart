@@ -6,7 +6,9 @@ import 'package:srbiau_digital_plaque/component/dimens.dart';
 import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
 import 'package:srbiau_digital_plaque/main.dart';
+import 'package:srbiau_digital_plaque/view/all_compines.dart';
 import 'package:srbiau_digital_plaque/view/contact_us.dart';
+// import 'package:srbiau_digital_plaque/view/searchtest.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -55,7 +57,6 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ],
               ),
-              // (size.height * 0.075).height,
               ListTile(
                 title: const Text(
                   'صفحه اصلی',
@@ -73,7 +74,9 @@ class CustomDrawer extends StatelessWidget {
                   style: AppTextStyles.tileTxtStyleW,
                 ),
                 onTap: () {
-                  Get.toNamed(RouteName.allCompines);
+                  // Get.toNamed(RouteName.allCompines);
+                  Get.to(AllBusinessListPage() , routeName: RouteName.allCompines);
+                  // Get.to(BusinessSearchPage());
                 },
               ),
               ListTile(
@@ -90,8 +93,8 @@ class CustomDrawer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     horizontal: AppDimens.padding, vertical: AppDimens.xlarge),
                 child: SvgPicture.asset(
-                  Assets.svg.footer,
-                  height: size.height * 0.02,
+                  Assets.svg.loogo,
+                  height: size.height * 0.1,
                   colorFilter: const ColorFilter.mode(
                       // Color.fromARGB(255, 178, 178, 178)
                       Colors.white70,

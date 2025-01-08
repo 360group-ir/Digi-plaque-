@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,12 +9,10 @@ import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 import 'package:srbiau_digital_plaque/component/responsive.dart';
 import 'package:srbiau_digital_plaque/controller/all_companies_controller.dart';
 import 'package:srbiau_digital_plaque/gen/assets.gen.dart';
-import 'package:srbiau_digital_plaque/widgets/company_item.dart';
 import 'package:srbiau_digital_plaque/widgets/costum_drawer.dart';
 
 class AllBusinessListPage extends StatelessWidget {
   final AllBusinessController controller = Get.put(AllBusinessController());
-  final TextEditingController searchController = TextEditingController();
 
   AllBusinessListPage({super.key});
 
@@ -63,7 +60,6 @@ class AllBusinessListPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(AppDimens.padding),
                   child: TextField(
-                    controller: searchController,
                     decoration: const InputDecoration(
                       label: Align(
                           alignment: Alignment.centerRight,
@@ -78,8 +74,8 @@ class AllBusinessListPage extends StatelessWidget {
                       suffixIcon: Icon(CupertinoIcons.search),
                       focusColor: AppColors.primaryPelak,
                     ),
-                    onChanged: (value) {
-                      controller.searchBusinesses(value);
+                    onChanged: (query) {
+                      controller.searchBusinesses(query);
                     },
                   ),
                 ),
@@ -111,14 +107,20 @@ class AllBusinessListPage extends StatelessWidget {
                       itemCount: controller.businesses.length,
                       itemBuilder: (context, index) {
                         final company = controller.businesses[index];
-                        if (kDebugMode) {
-                          print(controller.businesses[index]);
-                        }
-                        return CompanyItem(
-                          field: company.businessField,
-                          imgurl: company.logo,
-                          pelak: company.slug,
-                          title: company.name,
+                        return 
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal:  AppDimens.padding , vertical: AppDimens.small),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: ListTile(
+                              title: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(company.name)),
+                              subtitle: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(company.businessField))),
                         );
                       },
                     );

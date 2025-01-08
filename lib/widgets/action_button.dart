@@ -76,7 +76,7 @@ END:VCARD
                   colorFilter: const ColorFilter.mode(
                       AppColors.neutralDarker, BlendMode.srcIn),
                 )),
-            (size.width * 0.05).width,
+            (size.width * 0.055).width,
             IconButton(
                 onPressed: () async => await downloadVcf(
                     companyName, companyName, phoneNumber, email),

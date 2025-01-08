@@ -12,7 +12,7 @@ import 'package:srbiau_digital_plaque/widgets/costum_textbutton.dart';
 class CompanyItem extends StatelessWidget {
   const CompanyItem({
     super.key,
-    required this.title,
+    required this.title ,
     required this.pelak,
     required this.field,
     required this.imgurl,

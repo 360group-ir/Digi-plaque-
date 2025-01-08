@@ -80,6 +80,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/lang.svg
   String get lang => 'assets/svg/lang.svg';
 
+  /// File path: assets/svg/loogo.svg
+  String get loogo => 'assets/svg/loogo.svg';
+
   /// File path: assets/svg/save.svg
   String get save => 'assets/svg/save.svg';
 
@@ -116,6 +119,7 @@ class $AssetsSvgGen {
         footer,
         groper360,
         lang,
+        loogo,
         save,
         service360,
         share,

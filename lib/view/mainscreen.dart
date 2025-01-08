@@ -328,7 +328,6 @@ class _MainScreenState extends State<MainScreen> {
                           CostumTextButton(
                             textButtonTitle: 'بلوک A',
                             onPressed: () {
-                              // Get.toNamed(RouteName.routeCompaneyList);
                               Get.toNamed(
                                   "${RouteName.routeCompaneyList}?building=ساختمان دکتر حبیبی&floor=0&block=A");
                             },
@@ -347,12 +346,12 @@ class _MainScreenState extends State<MainScreen> {
               email: 'info@360group.ir',
             ),
 
-            (size.height * 0.015).height,
+            // (size.height * 0.01).height,
             Padding(
-              padding: const EdgeInsets.all(AppDimens.padding),
+              padding: const EdgeInsets.all(AppDimens.medium),
               child: SvgPicture.asset(
-                Assets.svg.footer,
-                height: size.height * 0.02,
+                Assets.svg.loogo,
+                height: size.height * 0.2,
                 colorFilter: const ColorFilter.mode(
                     Color.fromARGB(255, 178, 178, 178), BlendMode.srcIn),
               ),

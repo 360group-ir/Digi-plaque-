@@ -6,7 +6,7 @@ class Business {
   final String logo;
   final String ceoFirstName;
   final String ceoLastName;
-  // final String? ceoPhone;
+  final String? ceoPhone;
 
   Business({
     required this.slug,
@@ -16,7 +16,7 @@ class Business {
     required this.logo,
     required this.ceoFirstName,
     required this.ceoLastName,
-    //  this.ceoPhone,
+     this.ceoPhone,
   });
 
   factory Business.fromJson(Map<String, dynamic> json) {
@@ -28,7 +28,7 @@ class Business {
       logo: json['logo'],
       ceoFirstName: json['ceo']['first_name'],
       ceoLastName: json['ceo']['last_name'],
-      // ceoPhone: json['ceo']['phone'],
+      ceoPhone: json['ceo']['phone'],
     );
   }
 }

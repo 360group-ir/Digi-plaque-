@@ -36,7 +36,7 @@ class Business {
   final String name;
   final String businessField;
   final String website;
-  final String logo;
+  final String? logo;
   final CEO ceo;
 
   Business({
@@ -44,7 +44,7 @@ class Business {
     required this.name,
     required this.businessField,
     required this.website,
-    required this.logo,
+     this.logo,
     required this.ceo,
   });
 

@@ -27,7 +27,7 @@ class AllBusinessController extends GetxController {
       print("Businesses fetched successfully: ${businesses.length} items");
     } else {
       Get.snackbar('Error', 'Failed to fetch data');
-      print("Failed to fetch data: ${response.data}");
+      print("Failed to fetch data: "); 
     }
   } catch (e) {
     Get.snackbar('Error', e.toString());
