@@ -30,7 +30,8 @@ class Complex {
 
 class BusinessData {
   final String name;
-   String logo = 'https://360tools.io/baam.png';
+  //TODO : logo
+   String logo = 'https://e-pelak.com/baam.png';
   final String description;
   final String businessField;
   final String address;

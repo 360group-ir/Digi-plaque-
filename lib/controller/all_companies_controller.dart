@@ -18,7 +18,7 @@ class AllBusinessController extends GetxController {
   try {
     isLoading(true);
     final response = await dio.get(
-        'https://360tools.io/epelak/api/srbroshd/businesses');
+        'https://e-pelak.com/api/srbroshd/businesses');
     
     if (response.statusCode == 200 && response.data['status']) {
       final List<dynamic> data = response.data['data']['data'];

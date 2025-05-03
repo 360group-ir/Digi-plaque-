@@ -6,7 +6,7 @@ import 'package:srbiau_digital_plaque/component/res/text_styles.dart';
 class ExpanGroup extends StatelessWidget {
   const ExpanGroup({
     super.key,
-    required this.title,
+    required this.title, 
     required this.children,
     required this.mainColor, required this.expantileOpen,
   });

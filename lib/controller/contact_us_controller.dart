@@ -7,7 +7,7 @@ import 'package:srbiau_digital_plaque/models/contact_us_model.dart';
 
 class ContactUsController extends GetxController {
   final Dio _dio = Dio();
-  final String _baseUrl = "https://360tools.io/epelak/api/contact-us";
+  final String _baseUrl = "https://e-pelak.com/api/contact-us";
 
   var isLoading = false.obs;
   var isSuccess = false.obs;

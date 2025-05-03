@@ -18,7 +18,7 @@ class CompanyListController extends GetxController {
     try {
       // ساخت URL با پارامترها
       final String url =
-          'https://360tools.io/epelak/api/srbroshd/businesses?building=$building&floor=$floor&block=$block';
+          'https://e-pelak.com/api/srbroshd/businesses?building=$building&floor=$floor&block=$block';
 
       final response = await _dio.get(url); // ارسال درخواست GET به URL
       if (response.statusCode == 200) {

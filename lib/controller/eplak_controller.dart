@@ -8,6 +8,7 @@ class BusinessController extends GetxController {
   var businessData = Rxn<BusinessData>();
   String businessCode; 
 
+
   final Dio _dio = Dio(BaseOptions(
     baseUrl: ApiConstant.baseUrl,
     connectTimeout: const Duration(seconds: 10),

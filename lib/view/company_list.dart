@@ -105,7 +105,7 @@ class CompanyList extends StatelessWidget {
                           final company = compListController.companyList[index];
                           return CompanyItem(
                             field: company.businessField,
-                            imgurl: company.logo ?? 'https://360tools.io/baam.png',
+                            imgurl: company.logo ?? 'https://e-pelak.com//baam.png',
                             pelak: company.slug,
                             title: company.name,
                           );
